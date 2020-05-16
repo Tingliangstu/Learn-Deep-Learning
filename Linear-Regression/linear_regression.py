@@ -39,12 +39,13 @@ def step_gradient(b_current, w_current, points, learningRate):
         x = points[i, 0]
         y = points[i, 1]
         # grad_b = 2(wx+b-y)
-        b_gradient += (2/N) * ((w_current * x + b_current) - y)
+        b_gradient += ((2 * ((w_current * x + b_current) - y)) / N
         # grad_w = 2(wx+b-y)*x
-        w_gradient += (2/N) * x * ((w_current * x + b_current) - y)
+        w_gradient += ((2 * x * ((w_current * x + b_current) - y)) / N
     # update w'
     new_b = b_current - (learningRate * b_gradient)        # learningRate = Step length
     new_w = w_current - (learningRate * w_gradient)
+    
     return [new_b, new_w]
 
 # ******************* Set w = w' and loop *****************
