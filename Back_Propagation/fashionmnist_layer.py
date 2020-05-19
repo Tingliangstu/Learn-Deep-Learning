@@ -79,7 +79,7 @@ def build_model(batch_size):
             # logits => prob, [b, 10]
             prob = tf.nn.softmax(logits, axis=1)
 
-            # [b, 10] => [b], int64 (The position number is the number to be predicted)
+            # [b, 10] => [b], int64                        # (The position number is the number to be predicted)
             pred = tf.argmax(prob, axis=1)                 # Returns the index with the largest value across axes of a tensor.
             pred = tf.cast(pred, dtype=tf.int32)
 
